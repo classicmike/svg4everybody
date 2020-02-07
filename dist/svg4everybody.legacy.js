@@ -33,9 +33,7 @@
                 var cachedDocument = xhr._cachedDocument;
                 // ensure the cached html document based on the xhr response
                 cachedDocument || (cachedDocument = xhr._cachedDocument = document.implementation.createHTMLDocument(""), 
-                cachedDocument.body.innerHTML = xhr.responseText, // ensure domains are the same, otherwise we'll have issues appending the
-                // element in IE 11
-                cachedDocument.domain = document.domain, xhr._cachedTarget = {}), // clear the xhr embeds list and embed each item
+                cachedDocument.body.innerHTML = xhr.responseText, xhr._cachedTarget = {}), // clear the xhr embeds list and embed each item
                 xhr._embeds.splice(0).map(function(item) {
                     // get the cached target
                     var target = xhr._cachedTarget[item.id];
